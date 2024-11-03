@@ -3,8 +3,8 @@ import { productos } from "./data/db"
 function App() {
   return (
     <>
-      <header className="bg-fuchsia-600 py-4">
-        <h1 className="text-center text-fuchsia-100 font-bold text-3xl">App de Consumo</h1>
+      <header className=" bg-sky-700 py-4">
+        <h1 className="text-center text-white font-bold text-3xl">App de Consumo</h1>
       </header>
       <main className="max-w-5xl mx-auto py-4 grid md:grid-cols-2">
         <div>
@@ -13,8 +13,8 @@ function App() {
             
             {
               //* funcion implicita que recibe un arreglo de objetos y los mapea
-              productos.map(item=>(
-                  <Productos key={item.id} item = {item}/>
+              productos.map((item,index)=>(
+                  <Productos key={item.id} item = {item} index = {index + 1}/>
               ))
             }
           </div>
