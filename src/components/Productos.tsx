@@ -1,3 +1,4 @@
+import { money } from "../helpers"
 import type { dbProdutos } from "../types"
 
 type ProdutosProps = {
@@ -21,7 +22,7 @@ const Productos = ({item, index}:ProdutosProps) => {
                 <p className=" text-lg">{index}.</p>
                 <h1 className="ml-2 text-lg">{nombre}</h1>
             </div>
-            <strong>{precio}</strong>
+            <strong>{money(precio)}</strong>
         </button>
 
 

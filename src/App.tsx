@@ -4,12 +4,12 @@ function App() {
   return (
     <>
       <header className=" bg-sky-700 py-4">
-        <h1 className="text-center text-white font-bold text-3xl">App de Consumo</h1>
+        <h1 className="text-center text-white font-bold text-3xl">Tia Veneno</h1>
       </header>
       <main className="max-w-5xl mx-auto py-4 grid md:grid-cols-2">
         <div>
           <h2 className="font-bold text-2xl">Productos</h2>
-          <div>
+          <div className=" space-y-2 mt-5">
             
             {
               //* funcion implicita que recibe un arreglo de objetos y los mapea
