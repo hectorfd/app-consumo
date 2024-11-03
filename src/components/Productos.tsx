@@ -3,11 +3,12 @@ import type { dbProdutos } from "../types"
 
 type ProdutosProps = {
     item: dbProdutos,
-    index: number
+    index: number,
+    agregarItem: (item: dbProdutos) => void,
 }
 
 
-const Productos = ({item, index}:ProdutosProps) => {
+const Productos = ({item, index, agregarItem}:ProdutosProps) => {
     //* desestructurando item 
     const {nombre, precio} = item
     return (
@@ -16,7 +17,7 @@ const Productos = ({item, index}:ProdutosProps) => {
                 hover:text-white cursor-pointer 
                 border-teal-800 border-2 
                 rounded-lg px-4"
-            
+            onClick={()=>agregarItem(item)}
             >
             <div className="flex">
                 <p className=" text-lg">{index}.</p>
