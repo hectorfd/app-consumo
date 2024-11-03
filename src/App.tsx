@@ -1,4 +1,5 @@
-
+import Productos from "./components/Productos"
+import { productos } from "./data/db"
 function App() {
   return (
     <>
@@ -8,6 +9,15 @@ function App() {
       <main className="max-w-5xl mx-auto py-4 grid md:grid-cols-2">
         <div>
           <h2 className="font-bold text-2xl">Productos</h2>
+          <div>
+            
+            {
+              //* funcion implicita que recibe un arreglo de objetos y los mapea
+              productos.map(item=>(
+                  <Productos key={item.id} item = {item}/>
+              ))
+            }
+          </div>
         </div>
         <div>
           <h2 className="font-bold text-2xl">Consumo</h2>
