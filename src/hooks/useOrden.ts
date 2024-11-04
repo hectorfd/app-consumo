@@ -6,6 +6,7 @@ export default function useOrden() {
     //* el useState inicia en un array vacio
     const [orden, setOrden] = useState<OrdenItem[]>([])
 
+    //Funcion Agregar Item
     const agregarItem = (item:dbProdutos)=>{
         //* find es una metodo de array que encuentra el elemento segun la condicion
         const hayItem = orden.find(ordenItem =>  ordenItem.id === item.id)
@@ -26,7 +27,15 @@ export default function useOrden() {
         }
     }
 
+    const removerItem = (id:dbProdutos['id'])=>{
+        //* filter crea un nuevo array con todos los ítems que no tengan el id especificado
+        const nuevaOrden = orden.filter(item => item.id !== id)
+        //* setOrden aplica el nuevo array al estado
+        setOrden(nuevaOrden)
+    }
+
+
     return{
-        orden,  agregarItem
+        orden,  agregarItem, removerItem
     }
 }

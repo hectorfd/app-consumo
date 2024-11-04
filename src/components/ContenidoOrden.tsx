@@ -3,11 +3,11 @@ import { dbProdutos, OrdenItem } from "../types"
 
 type ContenidoOrdenProps = {
     orden: OrdenItem[],
-    agregarItem: (item: dbProdutos) => void,
+    removerItem: (id: dbProdutos["id"]) => void
 }
 
 
-const ContenidoOrden = ({ orden }: ContenidoOrdenProps) => {
+const ContenidoOrden = ({ orden, removerItem }: ContenidoOrdenProps) => {
     return (
         <div>
             <h2 className="font-bold text-2xl">Consumo</h2>
@@ -19,10 +19,15 @@ const ContenidoOrden = ({ orden }: ContenidoOrdenProps) => {
                         >
                             <div className="felx">
                                 <p>{item.nombre} - {money(item.precio)}</p>
-                                <strong className="">Cantidad: {item.cantidad} ->  {money(item.precio * item.cantidad)}</strong>
+                                <strong className="">Cantidad: {item.cantidad} - {money(item.precio * item.cantidad)}</strong>
                             </div>
-                            <button>X</button>
-
+                            
+                            <button 
+                                className=" bg-red-500 text-white rounded-full w-8 h-8 hover:bg-red-600 items-center"
+                                onClick={()=> removerItem(item.id)}
+                            >
+                                X
+                            </button>
 
                         </div>
                     ))

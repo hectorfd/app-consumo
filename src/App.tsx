@@ -5,7 +5,7 @@ import useOrden from "./hooks/useOrden"
 function App() {
 
   //* aqui vamos a desestructurar el useOrden
-  const {orden, agregarItem } = useOrden()
+  const {orden, agregarItem, removerItem } = useOrden()
   return (
     <>
       <header className=" bg-sky-700 py-4">
@@ -24,7 +24,7 @@ function App() {
           </div>
         </div>
         <div className=" border border-dashed border-sky-300 p-5 rounded-lg space-y-10">
-          <ContenidoOrden orden={orden}/>
+          <ContenidoOrden orden={orden} removerItem={removerItem}/>
 
         </div>
 
