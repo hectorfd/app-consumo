@@ -24,7 +24,20 @@ function App() {
           </div>
         </div>
         <div className=" border border-dashed border-sky-300 p-5 rounded-lg space-y-10">
-          <ContenidoOrden orden={orden} removerItem={removerItem}/>
+
+          {
+            orden.length? (
+              <>
+                <ContenidoOrden orden={orden} removerItem={removerItem}/>
+              </>
+              
+            ):
+            (
+              <p className=" text-center font-bold text-slate-400">Aun no ha seleccionado nada para consumir</p>
+            )
+            
+          }
+          
 
         </div>
 
