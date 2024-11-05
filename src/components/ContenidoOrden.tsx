@@ -10,7 +10,7 @@ type ContenidoOrdenProps = {
 const ContenidoOrden = ({ orden, removerItem }: ContenidoOrdenProps) => {
     return (
         <div>
-            <h2 className="font-bold text-2xl">Consumo</h2>
+            <h2 className="font-bold text-2xl text-cyan-900">Consumo</h2>
             <div className=" space-y-2 mt-5">
                 {
                     orden.map(item => (

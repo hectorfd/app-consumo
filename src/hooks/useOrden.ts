@@ -6,6 +6,9 @@ export default function useOrden() {
     //* el useState inicia en un array vacio
     const [orden, setOrden] = useState<OrdenItem[]>([])
 
+    //* para propinas
+    const [prop, setProp] = useState(0)
+
     //Funcion Agregar Item
     const agregarItem = (item:dbProdutos)=>{
         //* find es una metodo de array que encuentra el elemento segun la condicion
@@ -36,6 +39,6 @@ export default function useOrden() {
 
 
     return{
-        orden,  agregarItem, removerItem
+        orden,  agregarItem, removerItem, prop, setProp
     }
 }
