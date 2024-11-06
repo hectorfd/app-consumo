@@ -9,6 +9,7 @@ export default function useOrden() {
     //* para propinas
     const [prop, setProp] = useState(0)
 
+
     //Funcion Agregar Item
     const agregarItem = (item:dbProdutos)=>{
         //* find es una metodo de array que encuentra el elemento segun la condicion
@@ -37,8 +38,15 @@ export default function useOrden() {
         setOrden(nuevaOrden)
     }
 
+    //* para poder cambiar el estdo de cada elemento debemos tener una funcion que llame a los set de cada usestate
+
+    const totalOrden = ()=> {
+        setOrden([])
+        setProp(0)
+    }
+
 
     return{
-        orden,  agregarItem, removerItem, prop, setProp
+        orden,  agregarItem, removerItem, prop, setProp, totalOrden
     }
 }

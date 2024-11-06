@@ -23,10 +23,10 @@ const ContenidoOrden = ({ orden, removerItem }: ContenidoOrdenProps) => {
                             </div>
                             
                             <button 
-                                className=" bg-red-500 text-white rounded-full w-8 h-8 hover:bg-red-600 items-center"
+                                className=" bg-orange-500 text-white rounded-full w-8 h-8 hover:bg-red-600 items-center"
                                 onClick={()=> removerItem(item.id)}
                             >
-                                X
+                                <span className="font-bold">X</span>
                             </button>
 
                         </div>

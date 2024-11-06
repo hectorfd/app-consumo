@@ -3,11 +3,12 @@ import Productos from "./components/Productos"
 import { productos } from "./data/db"
 import useOrden from "./hooks/useOrden"
 import Propinas from "./components/Propinas"
+import CalcularTotales from "./components/CalcularTotales"
 
 function App() {
 
   //* aqui vamos a desestructurar el useOrden
-  const { orden, agregarItem, removerItem, prop, setProp } = useOrden()
+  const { orden, agregarItem, removerItem, prop, setProp, totalOrden } = useOrden()
   return (
     <>
       <header className=" bg-sky-700 py-4">
@@ -34,6 +35,8 @@ function App() {
                 <ContenidoOrden orden={orden} removerItem={removerItem} />
                 {/* componente para propinas */}
                 <Propinas prop = {prop} setProp = {setProp} />
+                {/* componente para calcular Totales */}
+                <CalcularTotales orden={orden} prop={prop} totalOrden={totalOrden}/>
               </>
             ) :
               (
