@@ -9,6 +9,33 @@ export default function useOrden() {
     //* para propinas
     const [prop, setProp] = useState(0)
 
+    // funcion restar items
+    const restarItem = (item:dbProdutos)=>{
+        //* find es una metodo de array que encuentra el elemento segun la condicion
+        const hayItem = orden.find(ordenItem =>  ordenItem.id === item.id)
+
+        if(hayItem){
+            const actualizarOrden = orden.map(ordenItem => {
+                if (ordenItem.id === item.id) {
+                    //* Si la cantidad es mayor que 1, restar 1, de lo contrario dejarla como está
+                    const nuevaCantidad = ordenItem.cantidad > 1 ? ordenItem.cantidad - 1 : ordenItem.cantidad;
+                    return {...ordenItem, cantidad: nuevaCantidad};
+                } else {
+                    return ordenItem;
+                }
+            })
+            
+            setOrden(actualizarOrden);
+            
+        }else{
+            //* ahora si no hay item crea un nuevo usamos spread porque ya sabes los originales son inmutables 
+            //* y no podemos cambiarlos directamente y a ese nuevo array le agregamos la propiedad cantidad y le damos valor de 1
+            const nuevoItem = {...item, cantidad: 0}
+            //* y setOrden aplica el nuevo item al estado consumo
+            setOrden([...orden,nuevoItem])
+        }
+    }
+
 
     //Funcion Agregar Item
     const agregarItem = (item:dbProdutos)=>{
@@ -47,6 +74,6 @@ export default function useOrden() {
 
 
     return{
-        orden,  agregarItem, removerItem, prop, setProp, totalOrden
+        orden,  agregarItem, removerItem, prop, setProp, totalOrden, restarItem
     }
 }

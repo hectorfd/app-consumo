@@ -11,14 +11,16 @@ type CalcularTotalesProps = {
 
 const CalcularTotales = ({orden,  prop, totalOrden}:CalcularTotalesProps) => {
     const montoSubTotal = useMemo(() => orden.reduce((total, item)=> total + (item.cantidad * item.precio),0), [orden])
-    const montoPropina = useMemo(() => montoSubTotal * prop, [prop, montoSubTotal])
-    const montoTotal = useMemo(() => montoSubTotal + montoPropina, [montoSubTotal, montoPropina])
+    const montoPropina = useMemo(() => montoSubTotal * prop, [prop, montoSubTotal]) 
+    const IGV = useMemo(()=>(montoSubTotal + montoPropina) * .18,[montoSubTotal,montoPropina])
+    const montoTotal = useMemo(() => montoSubTotal + montoPropina + IGV, [montoSubTotal, montoPropina, IGV])
     return (
 
         <div>
             <h2 className="font-bold text-2xl text-cyan-900 mb-5">Totales</h2>
             <p>Subtotal: <strong>{money(montoSubTotal)}</strong></p>
             <p>Propina: <strong>{money(montoPropina)}</strong></p>
+            <p>IGV: <strong>{money(IGV)}</strong></p>
             <p>Total a Pagar: <strong>{money(montoTotal)}</strong></p>
 
             <button

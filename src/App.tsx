@@ -8,7 +8,7 @@ import CalcularTotales from "./components/CalcularTotales"
 function App() {
 
   //* aqui vamos a desestructurar el useOrden
-  const { orden, agregarItem, removerItem, prop, setProp, totalOrden } = useOrden()
+  const { orden, agregarItem, restarItem, removerItem, prop, setProp, totalOrden } = useOrden()
   return (
     <>
       <header className=" bg-sky-700 py-4">
@@ -32,7 +32,7 @@ function App() {
             orden.length ? (
               <>
                 {/* componente ContenidoOrden */}
-                <ContenidoOrden orden={orden} removerItem={removerItem} />
+                <ContenidoOrden orden={orden} removerItem={removerItem}  agregarItem={agregarItem} restarItem = {restarItem}/>
                 {/* componente para propinas */}
                 <Propinas prop = {prop} setProp = {setProp} />
                 {/* componente para calcular Totales */}
